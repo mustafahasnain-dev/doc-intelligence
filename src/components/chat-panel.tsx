@@ -61,7 +61,7 @@ export function ChatPanel() {
 
       {/* Messages area */}
       <ScrollArea className="flex-1 overflow-hidden">
-        <div ref={scrollAreaRef} className="px-5">
+        <div ref={scrollAreaRef} className="px-3 sm:px-5">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full py-20 text-center animate-fade-in-up">
               <div className="h-14 w-14 rounded-2xl gradient-primary flex items-center justify-center shadow-lg mb-4">
@@ -94,7 +94,7 @@ export function ChatPanel() {
                     </div>
                   )}
                   <div
-                    className={`max-w-[80%] text-sm leading-relaxed ${
+                    className={`max-w-[85%] sm:max-w-[80%] text-sm leading-relaxed ${
                       msg.role === "user"
                         ? "gradient-primary text-white rounded-2xl rounded-tr-sm px-4 py-3 shadow-md"
                         : "bg-card border border-border/50 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm"
@@ -149,7 +149,7 @@ export function ChatPanel() {
       </ScrollArea>
 
       {/* Input area */}
-      <div className="border-t border-border/50 p-4 bg-linear-to-t from-muted/30 to-transparent">
+      <div className="border-t border-border/50 p-3 sm:p-4 bg-linear-to-t from-muted/30 to-transparent">
         <div className="flex gap-2 items-end bg-card rounded-xl border border-border/50 shadow-sm p-2 transition-shadow focus-within:shadow-md focus-within:border-primary/30">
           <Textarea
             placeholder={

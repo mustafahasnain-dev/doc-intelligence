@@ -70,7 +70,7 @@ export function ComparisonTable() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-3.5 border-b border-border/50">
+      <div className="flex items-center justify-between px-3 sm:px-5 py-3.5 border-b border-border/50">
         <div className="flex items-center gap-2.5">
           <div className="h-6 w-6 rounded-md gradient-primary flex items-center justify-center">
             <Columns3 className="h-3 w-3 text-white" />
@@ -90,7 +90,7 @@ export function ComparisonTable() {
       </div>
 
       {/* Controls */}
-      <div className="px-5 py-3.5 border-b border-border/50">
+      <div className="px-3 sm:px-5 py-3.5 border-b border-border/50">
         <Button
           onClick={handleCompare}
           disabled={loading || !canCompare}
@@ -110,7 +110,7 @@ export function ComparisonTable() {
 
       {/* Table */}
       <ScrollArea className="flex-1 overflow-hidden">
-        <div className="px-5 py-4">
+        <div className="px-3 sm:px-5 py-4">
           {!comparison ? (
             <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-in-up">
               <div className="h-14 w-14 rounded-2xl bg-muted flex items-center justify-center mb-4">

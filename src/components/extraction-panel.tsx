@@ -90,7 +90,7 @@ export function ExtractionPanel() {
   return (
     <div className="flex flex-col h-full">
       {/* Header */}
-      <div className="flex items-center justify-between px-5 py-3.5 border-b border-border/50">
+      <div className="flex items-center justify-between px-3 sm:px-5 py-3.5 border-b border-border/50">
         <div className="flex items-center gap-2.5">
           <div className="h-6 w-6 rounded-md gradient-primary flex items-center justify-center">
             <LayoutGrid className="h-3 w-3 text-white" />
@@ -105,7 +105,7 @@ export function ExtractionPanel() {
               className="h-7 text-xs gap-1 rounded-lg border-border/50 hover:bg-muted"
               onClick={() => handleExport("json")}
             >
-              <Download className="h-3 w-3" /> JSON
+              <Download className="h-3 w-3" /> <span className="hidden sm:inline">JSON</span>
             </Button>
             <Button
               variant="outline"
@@ -113,14 +113,14 @@ export function ExtractionPanel() {
               className="h-7 text-xs gap-1 rounded-lg border-border/50 hover:bg-muted"
               onClick={() => handleExport("csv")}
             >
-              <Download className="h-3 w-3" /> CSV
+              <Download className="h-3 w-3" /> <span className="hidden sm:inline">CSV</span>
             </Button>
           </div>
         )}
       </div>
 
       {/* Extraction controls */}
-      <div className="px-5 py-3.5 border-b border-border/50 space-y-3">
+      <div className="px-3 sm:px-5 py-3.5 border-b border-border/50 space-y-3">
         <div className="flex items-center gap-2 flex-wrap">
           <span className="text-[11px] text-muted-foreground font-medium uppercase tracking-wider">Type:</span>
           {EXTRACTION_TYPES.map((t) => {
@@ -155,7 +155,7 @@ export function ExtractionPanel() {
 
       {/* Results */}
       <ScrollArea className="flex-1 overflow-hidden">
-        <div className="px-5 py-4">
+        <div className="px-3 sm:px-5 py-4">
           {allExtractions.length === 0 ? (
             <div className="flex flex-col items-center justify-center py-20 text-center animate-fade-in-up">
               <div className="h-14 w-14 rounded-2xl bg-muted flex items-center justify-center mb-4">
