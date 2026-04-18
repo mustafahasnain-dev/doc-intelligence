@@ -7,6 +7,15 @@ import type { DocumentChunk } from "@/lib/types";
 
 export async function POST(req: NextRequest) {
   try {
+    // Validate API key
+    if (!process.env.ANTHROPIC_API_KEY) {
+      console.error("ANTHROPIC_API_KEY is not set in environment");
+      return NextResponse.json(
+        { error: "API key not configured" },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const { question, chunks } = body as {
       question: string;
@@ -29,9 +38,11 @@ export async function POST(req: NextRequest) {
         Connection: "keep-alive",
       },
     });
-  } catch {
+  } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    console.error("Chat API error:", errorMessage, err);
     return NextResponse.json(
-      { error: "Internal server error" },
+      { error: errorMessage },
       { status: 500 }
     );
   }

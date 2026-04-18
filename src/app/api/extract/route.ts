@@ -4,6 +4,15 @@ import type { DocumentChunk, ExtractionField, ExtractionResult } from "@/lib/typ
 
 export async function POST(req: NextRequest) {
   try {
+    // Validate API key
+    if (!process.env.ANTHROPIC_API_KEY) {
+      console.error("ANTHROPIC_API_KEY is not set in environment");
+      return NextResponse.json(
+        { error: "API key not configured" },
+        { status: 500 }
+      );
+    }
+
     const body = await req.json();
     const { documentId, extractionType, chunks } = body as {
       documentId: string;
@@ -43,8 +52,10 @@ export async function POST(req: NextRequest) {
 
     return NextResponse.json({ success: true, result });
   } catch (err) {
+    const errorMessage = err instanceof Error ? err.message : "Unknown error";
+    console.error("Extract API error:", errorMessage, err);
     return NextResponse.json(
-      { error: err instanceof Error ? err.message : "Internal server error" },
+      { error: errorMessage },
       { status: 500 }
     );
   }
