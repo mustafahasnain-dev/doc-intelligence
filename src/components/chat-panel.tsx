@@ -45,7 +45,7 @@ export function ChatPanel() {
   };
 
   return (
-    <div className="flex flex-col h-full">
+    <div className="flex flex-col h-full min-h-0">
       {/* Header */}
       <div className="flex items-center gap-2.5 px-5 py-3.5 border-b border-border/50">
         <div className="h-6 w-6 rounded-md gradient-primary flex items-center justify-center">
@@ -60,7 +60,7 @@ export function ChatPanel() {
       </div>
 
       {/* Messages area */}
-      <ScrollArea className="flex-1 overflow-hidden">
+      <ScrollArea className="flex-1 min-h-0 overflow-hidden">
         <div ref={scrollAreaRef} className="px-3 sm:px-5">
           {messages.length === 0 ? (
             <div className="flex flex-col items-center justify-center h-full py-20 text-center animate-fade-in-up">

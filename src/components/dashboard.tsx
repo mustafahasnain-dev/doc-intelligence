@@ -53,7 +53,7 @@ export default function Dashboard() {
       </aside>
 
       {/* Main workspace */}
-      <main className="flex-1 flex flex-col min-w-0">
+      <main className="flex-1 flex flex-col min-w-0 min-h-0">
         {/* Mobile header */}
         <div className="flex items-center gap-3 px-4 py-3 border-b border-border/50 lg:hidden">
           <button
@@ -70,7 +70,7 @@ export default function Dashboard() {
           </div>
         </div>
 
-        <Tabs defaultValue="chat" className="flex flex-col h-full">
+        <Tabs defaultValue="chat" className="flex flex-col flex-1 min-h-0">
           {/* Tab navigation */}
           <div className="border-b border-border/50 px-3 sm:px-4 pt-2 bg-linear-to-r from-background to-muted/20">
             <TabsList className="h-10 sm:h-11 bg-muted/50 rounded-lg p-1 gap-1 w-full sm:w-auto">
@@ -100,13 +100,13 @@ export default function Dashboard() {
           </div>
 
           {/* Tab content */}
-          <TabsContent value="chat" className="flex-1 m-0 overflow-hidden">
+          <TabsContent value="chat" className="flex-1 m-0 min-h-0 overflow-hidden">
             <ChatPanel />
           </TabsContent>
-          <TabsContent value="extraction" className="flex-1 m-0 overflow-hidden">
+          <TabsContent value="extraction" className="flex-1 m-0 min-h-0 overflow-hidden">
             <ExtractionPanel />
           </TabsContent>
-          <TabsContent value="compare" className="flex-1 m-0 overflow-hidden">
+          <TabsContent value="compare" className="flex-1 m-0 min-h-0 overflow-hidden">
             <ComparisonTable />
           </TabsContent>
         </Tabs>
