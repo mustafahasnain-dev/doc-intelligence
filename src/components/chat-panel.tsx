@@ -100,9 +100,9 @@ export function ChatPanel() {
                         : "bg-card border border-border/50 rounded-2xl rounded-tl-sm px-4 py-3 shadow-sm"
                     }`}
                   >
-                    <p className="whitespace-pre-wrap">
+                    <div className={msg.role === "assistant" ? "space-y-0.5" : "whitespace-pre-wrap"}>
                       {msg.role === "assistant" ? formatMessage(msg.content) : msg.content}
-                    </p>
+                    </div>
                     {msg.citations.length > 0 && (
                       <div className="flex flex-wrap gap-1 mt-2.5 pt-2.5 border-t border-border/30">
                         {msg.citations.map((c, i) => (
